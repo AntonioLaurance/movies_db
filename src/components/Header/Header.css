@@ -1,0 +1,38 @@
+.header{
+    background: white;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+}
+
+.header-title {
+    color: #46515e;
+    height: 64px;
+    width: 250px;
+
+    font-size: 1.5em;
+    font-weight: bold;
+
+    margin-top: 21px;
+    margin-left: 20px;
+}
+
+.option {
+    color: #333;
+    width: fit-content;
+    font-size: 13px;
+    font-weight: 540;
+    padding-left: 17px;
+    padding-right: 17px;
+
+    margin-top: 33.7px;
+
+    float: right;
+}
+
+.menu-bar {
+    width: 100%;
+    display: block;
+    float: right;
+
+    margin-right: 40px;
+}

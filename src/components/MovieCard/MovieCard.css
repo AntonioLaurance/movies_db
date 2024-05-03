@@ -1,0 +1,62 @@
+.show-box {
+    width: fit-content;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 15px;
+    overflow: hidden;
+    background-color: #f3f3f3;
+
+    @apply relative bg-white;
+}
+
+.movie-image {
+    height: 375px;
+    width: 246.5px;
+    border-radius: 7px; 
+    max-width: none;
+
+    @apply relative;
+}
+
+.movie-info {
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    background: linear-gradient(0deg,#020024 10%,transparent);
+
+    /* Pass to tailwind classes */
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    @apply absolute;
+}
+
+.movie-category {
+    padding-bottom: 2px;
+}
+
+.movie-title {
+    margin-bottom: 16px;
+    line-height: 17px;
+    font-size: 19px;
+    font-weight: 600;
+
+    @apply text-white mt-1;
+}
+
+.movie-rating {
+    padding-bottom: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    display: flex;
+
+    @apply text-white mr-2;
+}
+
+.movie-rating-start {
+    width: 1.125em;
+    margin-right: 6px;
+}

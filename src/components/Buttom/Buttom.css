@@ -1,0 +1,11 @@
+.view-all-botton {
+    color: white;
+    background-color: red;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 2px;
+    padding-top: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+}

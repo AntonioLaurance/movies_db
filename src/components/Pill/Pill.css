@@ -1,0 +1,9 @@
+.poster-title {
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    @apply text-xs text-white bg-red-500 w-fit px-2;
+}
+
