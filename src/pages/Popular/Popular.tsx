@@ -1,6 +1,6 @@
 import { MovieCard } from '../../components/MovieCard';
-import { getPopularMovies } from '../../services';
 import { IMovieResponse } from '../../services/movies/types';
+import { getMoviesByCategory } from '../../services';
 import React, { useEffect, useState } from 'react';
 
 const Popular: React.FC = () => {
@@ -9,7 +9,7 @@ const Popular: React.FC = () => {
     const [errorMovies, setErrorMovies] = useState<boolean>(false);
 
     const getPopular = async () => {
-        await getPopularMovies()
+        await getMoviesByCategory("popular")
             .then((res) => {
                 if(res && res.data){
                     console.log(res.data.results, "res");

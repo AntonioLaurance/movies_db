@@ -1,6 +1,6 @@
 import { MovieCard } from '../../components/MovieCard';
-import { getTopRatedMovies } from '../../services/movies/getTopRatedMovies';
 import { IMovieResponse } from '../../services/movies/types';
+import { getMoviesByCategory } from '../../services';
 import React, { useEffect, useState } from 'react';
 
 const TopRated: React.FC = () => {
@@ -9,7 +9,7 @@ const TopRated: React.FC = () => {
     const [errorMovies, setErrorMovies] = useState<boolean>(false);
 
     const getTopRated = async () => {
-        await getTopRatedMovies()
+        await getMoviesByCategory("top_rated")
             .then((res) => {
                 if(res && res.data){
                     console.log(res.data.results, "res");

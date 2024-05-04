@@ -1,6 +1,6 @@
 import { MovieCard } from '../../components/MovieCard';
-import { getNowPlayingMovies } from '../../services/movies/getNowPlayingMovies';
 import { IMovieResponse } from '../../services/movies/types';
+import { getMoviesByCategory } from '../../services';
 import React, { useEffect, useState } from 'react';
 
 const NowPlaying: React.FC = () => {
@@ -9,7 +9,7 @@ const NowPlaying: React.FC = () => {
     const [errorMovies, setErrorMovies] = useState<boolean>(false);
 
     const getNowPlaying = async () => {
-        await getNowPlayingMovies()
+        await getMoviesByCategory("now_playing")
             .then((res) => {
                 if(res && res.data){
                     console.log(res.data.results, "res");
