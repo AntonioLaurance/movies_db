@@ -8,7 +8,7 @@ const Popular: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [errorMovies, setErrorMovies] = useState<boolean>(false);
 
-    const getPopular = async () => {
+    const getPopular = async () => {
         await getPopularMovies()
             .then((res) => {
                 if(res && res.data){
@@ -33,7 +33,7 @@ const Popular: React.FC = () => {
     }, []);
 
     return (
-        <div>
+        <div className='flex'>
             {loading && <div> Loading...</div>}
             {errorMovies && <div> Error...</div>}
             {movies?.length > 0 &&
