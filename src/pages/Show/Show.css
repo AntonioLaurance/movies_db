@@ -1,0 +1,15 @@
+.principal-image-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.image-fluid {
+    height: 482px;
+    border-radius: 10px;
+}
+
+.recommendations-tape {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}

@@ -10,8 +10,8 @@ import { IMovieResponse } from '../../services/movies/types';
 const MovieTape: React.FC<IMovieTape> = ({
     title, 
     category, 
-    numMovies = 8, 
-    movieId = null
+    numMovies = -1, 
+    movieId
 }) => {
     const [movies, setMovies] = useState<IMovieResponse[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -41,10 +41,14 @@ const MovieTape: React.FC<IMovieTape> = ({
 
     // Get the data of the movies of our given category
     const getCategory = async () => {
-        await getMoviesByCategory(category)
+        await getMoviesByCategory(category, movieId)
             .then((res) => {
                 if(res && res.data){
                     console.log(res.data.results, "res");
+                    
+                    if(numMovies != -1)
+                        res.data.results.splice(numMovies);
+                    
                     setMovies(res.data.results);
                 }
             })

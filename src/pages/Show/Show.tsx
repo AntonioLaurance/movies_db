@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { getDetails } from '../../services/movies/getDetails';
+import { MovieTape } from '../../components/MovieTape';
+import './Show.css';
+import { IMAGE_SOURCE } from '../../constants/moviesMock';
 
 const Show: React.FC = () => {
     const { id } = useParams();
@@ -13,6 +16,8 @@ const Show: React.FC = () => {
 
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const [favorites, setFavorites] = useState<string>("");  // "["3982732"]"
+
+    const poster = IMAGE_SOURCE + show.poster_path;
 
     const goBack = () => {
         navigate(-1);
@@ -61,30 +66,40 @@ const Show: React.FC = () => {
 
     return (
         <div>
-            {loading ? (
-                <span>loading...</span>
-            ) : (
-                <>
-                    <div>Show id: { id } </div>
-                    <div>Título desde el state: {location.state.name}</div>
-                    <div>Título desde el servicio: {show.title}</div>
-                    <div>Para adultos desde servicio: {show.adult ? "Yes" : "No"}</div>
-                    <button onClick={goBack}>Ir atrás</button>
-                    {isFavorite ? (
-                        <div>
-                            <button className="p4 bg-blue-500" onClick={removeFavorite}>
-                                Remove from favorites
-                            </button>
+            <div className='flex py-2.5'>
+                {loading ? (
+                    <span>loading...</span>
+                ) : (
+                    <>
+                        <div className='principal-image-container'>
+                            <img className='image-fluid' src={poster} alt={'poster ' + show.title}/>
                         </div>
-                    ): (
                         <div>
-                            <button className="p4 bg-red-500" onClick={addFavorite}>
-                                Add to favorites
-                            </button>
+                            <div>Show id: { id } </div>
+                            <div>Título desde el state: {location.state.name}</div>
+                            <div>Título desde el servicio: {show.title}</div>
+                            <div>Para adultos desde servicio: {show.adult ? "Yes" : "No"}</div>
+                            <button onClick={goBack}>Ir atrás</button>
+                            {isFavorite ? (
+                                <div>
+                                    <button className="p4 bg-blue-500" onClick={removeFavorite}>
+                                        Remove from favorites
+                                    </button>
+                                </div>
+                            ): (
+                                <div>
+                                    <button className="p4 bg-red-500" onClick={addFavorite}>
+                                        Add to favorites
+                                    </button>
+                                </div>
+                            )}
                         </div>
-                    )}
-                </>
-            )}          
+                    </>
+                )}
+            </div>
+            <div className='recommendations-tape'>
+                <MovieTape title='Recommendations' category='recommendations' numMovies={8} movieId={Number(id)}></MovieTape>
+            </div>
         </div>
     );
 };
