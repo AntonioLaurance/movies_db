@@ -1,11 +1,30 @@
 .view-all-botton {
     color: white;
-    background-color: red;
+    background-color: #f44;
+    border: 1px solid #f44;
+    font-size: 12px;
+    font-family: monospace;
+    font-weight: 600;
     width: fit-content;
     height: fit-content;
-    border-radius: 2px;
-    padding-top: 4px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 4px;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 6px;
+    overflow: hidden;
+
+    right: 15px;
+    top: 15px;
+
+    @apply absolute;
+}
+
+.view-all-botton-arrow {
+    width: 0.875em;
+    height: 1em;
+    vertical-align: -0.125em;
+    top: 2.7px;
+
+    @apply relative;
 }
