@@ -29,8 +29,8 @@ const MovieCard: React.FC<IMovieCard> = ({
     }
 
     return (
-        <div className='show-box'>
-            <div>
+        <div className='show-box flex-none'>
+            <div className='movie-image'>
                 <img className='movie-image' src={poster} alt='poster' />
             </div>
             <div className='movie-info'>

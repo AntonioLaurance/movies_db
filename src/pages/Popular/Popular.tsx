@@ -33,7 +33,7 @@ const Popular: React.FC = () => {
     }, []);
 
     return (
-        <div className='flex'>
+        <div className='flex flex-wrap'>
             {loading && <div> Loading...</div>}
             {errorMovies && <div> Error...</div>}
             {movies?.length > 0 &&

@@ -1,5 +1,5 @@
 .show-box {
-    width: fit-content;
+    width: auto;
     height: auto;
     padding-top: 20px;
     padding-left: 15px;
@@ -13,18 +13,14 @@
     height: 375px;
     width: 246.5px;
     border-radius: 7px; 
-    max-width: none;
-
-    @apply relative;
 }
 
 .movie-info {
     padding-top: 15px;
-    padding-right: 10px;
+    padding-right: 15px;
     padding-bottom: 15px;
     padding-left: 10px;
-    border-bottom-left-radius: 17px;
-    border-bottom-right-radius: 17px;
+    border-radius: 7px;
     background: linear-gradient(0deg,#020024 10%,transparent);
 
     /* Pass to tailwind classes */

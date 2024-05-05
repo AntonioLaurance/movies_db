@@ -3,7 +3,7 @@ import { getDetails } from '../../services/movies/getDetails';
 import { IMovieDetail } from './types';
 import React, { useState, useEffect } from 'react';
 
-const MyFavorites = () => {
+const MyFavorites: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [shows, setShows] = useState<IMovieDetail[]>([]);
     const favorites: string = localStorage.getItem('favorites') || "";
