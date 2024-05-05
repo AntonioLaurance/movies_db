@@ -24,8 +24,8 @@ const MyFavorites: React.FC = () => {
                 })
             );
             setShows(newShows);
-        setLoading(false);
         }
+        setLoading(false);
     }
 
 
@@ -40,10 +40,10 @@ const MyFavorites: React.FC = () => {
             {!loading ? (
             <div>
                 <h2>My Favorites</h2>
-                {favorites && favorites.length > 0 ? (
+                {favorites && JSON.parse(favorites) > 0 ? (
                     <div>
                         {shows && shows.length > 0 ? (
-                            <div>
+                            <div className="flex flex-wrap">
                                 {shows.map((show: IMovieDetail) => (
                                     <MovieCard
                                         key={show.id}

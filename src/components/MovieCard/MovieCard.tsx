@@ -29,9 +29,9 @@ const MovieCard: React.FC<IMovieCard> = ({
     }
 
     return (
-        <div className='show-box flex-none'>
+        <div className='show-box flex-none' onClick={() => navigateMovies(movieId, title)}>
             <div className='movie-image'>
-                <img className='movie-image' src={poster} alt='poster' />
+                <img className='movie-image hover:opacity-40 shadow-2xl' src={poster} alt='poster' />
             </div>
             <div className='movie-info'>
                 <div className='movie-category'>

@@ -70,6 +70,7 @@ const Home: React.FC = () => {
         voteAverage={movies[8].vote_average}
         genreId={movies[8].genre_ids[0]}
         />
+      <Buttom text="View all"></Buttom>
     </div>
   );
 };
