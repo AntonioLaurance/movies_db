@@ -1,4 +1,3 @@
-import { Buttom } from '../../components/Buttom';
 import { MovieCard } from '../../components/MovieCard';
 import { getDetails } from '../../services/movies/getDetails';
 import { IMovieDetail } from './types';
@@ -41,7 +40,7 @@ const MyFavorites: React.FC = () => {
             {!loading ? (
             <div>
                 <h2>My Favorites</h2>
-                {JSON.parse(favorites).length > 0 ? (
+                {favorites.length > 0 && JSON.parse(favorites).length > 0 ? (
                     <div>
                         {shows.length > 0 ? (
                             <div className="flex flex-wrap">

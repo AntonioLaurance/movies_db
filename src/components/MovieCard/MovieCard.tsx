@@ -21,7 +21,10 @@ const MovieCard: React.FC<IMovieCard> = ({
         // Filter the JSON to give an array of a 1 element of a JSON type
         const genre = genres["genres"].filter((genres) => genres.id == genreId);
         
-        return genre[0]["name"];
+        if(genre[0] !== undefined)
+            return genre[0]["name"];
+        else
+            return "No Classified";
     }
 
     const navigateMovies = (id: number, movieName: string) => {
@@ -46,7 +49,7 @@ const MovieCard: React.FC<IMovieCard> = ({
                 </p>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default MovieCard;

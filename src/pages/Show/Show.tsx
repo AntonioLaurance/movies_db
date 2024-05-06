@@ -5,6 +5,7 @@ import { getDetails } from '../../services/movies/getDetails';
 import { MovieTape } from '../../components/MovieTape';
 import './Show.css';
 import { IMAGE_SOURCE } from '../../constants/moviesMock';
+import { Pill } from '../../components/Pill';
 
 const Show: React.FC = () => {
     const { id } = useParams();
@@ -45,6 +46,7 @@ const Show: React.FC = () => {
             .then((res) => {
                 if(res && res.data){
                     setShow(res.data);
+                    console.log(res.data);
                 }
             })
             .catch((err) => {
@@ -117,19 +119,42 @@ const Show: React.FC = () => {
                                 <br></br>
                                 {show.overview}
                             </div>
-                            {isFavorite ? (
-                                <div>
-                                    <button className="p4 bg-blue-500" onClick={removeFavorite}>
-                                        Remove from favorites
-                                    </button>
+                            <div className='show-detail-extra flex'>
+                                <div className='extra-block'>
+                                    <h5 className='extra-title'>Genres</h5>
+                                    <div className='flex'>
+                                        {show.genres.map((genre: any) => [
+                                            <Pill title={genre.name} color='green'></Pill>
+                                        ])}
+                                    </div>
                                 </div>
-                            ): (
-                                <div>
-                                    <button className="p4 bg-red-500" onClick={addFavorite}>
-                                        Add to favorites
-                                    </button>
+                                <div className='extra-block'>
+                                    <h5 className='extra-title'>Favorite</h5>
+                                    {isFavorite ? (
+                                        <div>
+                                            <button className='favorite-buttom red-color-favorite-buttom p4' onClick={removeFavorite}>
+                                                <div className='flex'>
+                                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart-broken" className="heart-favorite-buttom" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                        <path fill="currentColor" d="M473.7 73.8l-2.4-2.5c-46-47-118-51.7-169.6-14.8L336 159.9l-96 64 48 128-144-144 96-64-28.6-86.5C159.7 19.6 87 24 40.7 71.4l-2.4 2.4C-10.4 123.6-12.5 202.9 31 256l212.1 218.6c7.1 7.3 18.6 7.3 25.7 0L481 255.9c43.5-53 41.4-132.3-7.3-182.1z"></path>
+                                                    </svg>
+                                                    <p>Remove from Favorites</p>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    ): (
+                                        <div>
+                                            <button className='favorite-buttom blue-color-favorite-buttom p4' onClick={addFavorite}>
+                                                <div className='flex'>
+                                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" className="heart-favorite-buttom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                        <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
+                                                    </svg>
+                                                    <p>Add to Favorites</p>
+                                                </div>     
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
+                            </div>
                         </div>
                     </>
                 )}

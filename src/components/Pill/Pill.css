@@ -7,3 +7,9 @@
     @apply text-xs text-white bg-red-500 w-fit px-2;
 }
 
+.green-color {
+    background-color: #5cb85c;
+    padding: 9px;
+    margin-right: 4px;
+}
+

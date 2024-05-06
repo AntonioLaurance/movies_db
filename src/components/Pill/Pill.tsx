@@ -11,7 +11,7 @@ const Pill: React.FC<IPill> = ({
         "text-white text-xs font-normal leading-none my-0 mx-0 mb-1 p-1.5 table rounded": true,
         "bg-red-500": color === "red",
         "bg-yellow-500": color === "yellow",
-        "bg-green-500": color === "green",
+        "green-color": color === "green",
     });
     
     return (
