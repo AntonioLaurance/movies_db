@@ -62,7 +62,7 @@ const MovieTape: React.FC<IMovieTape> = ({
     useEffect(() => {
         setLoading(true);
         getCategory();
-    }, [])
+    }, [movieId])
 
     return (
         <div className='relative'>

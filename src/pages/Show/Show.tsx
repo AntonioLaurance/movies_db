@@ -46,7 +46,6 @@ const Show: React.FC = () => {
             .then((res) => {
                 if(res && res.data){
                     setShow(res.data);
-                    console.log(res.data);
                 }
             })
             .catch((err) => {
@@ -64,19 +63,19 @@ const Show: React.FC = () => {
         }
         setLoading(true);
         getMovieDetail();
-    }, []);
+    }, [id]);
 
     return (
         <div>
-            <div className='flex py-2.5'>
+            <div className='flex flex-wrap py-2.5'>
                 {loading ? (
                     <span>loading...</span>
                 ) : (
                     <>
-                        <div className='principal-image-container'>
+                        <div className='principal-image-container flex-initial'>
                             <img className='image-fluid' src={poster} alt={'poster ' + show.title}/>
                         </div>
-                        <div className='show-image-detail'>
+                        <div className='show-image-detail flex-1'>
                             <div className='show-detail-title'>
                                 <h2>{show.title}</h2>
                             </div>
