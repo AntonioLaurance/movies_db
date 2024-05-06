@@ -29,7 +29,9 @@ const NowPlaying: React.FC = () => {
     }, []);
     
     return (
-        <div className='flex flex-wrap'>
+        <div>
+            <h2 className='category-text'>Now Playing</h2>
+            <div className='movie-card-cointainer flex flex-wrap'>
             {loading && <div>Loading...</div>}
             {errorMovies && <div>Error...</div>}
             {movies?.length > 0 &&
@@ -44,6 +46,7 @@ const NowPlaying: React.FC = () => {
                     />
                 ])
             }
+            </div>
         </div>
     );
 };
