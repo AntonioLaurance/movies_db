@@ -1,3 +1,3 @@
 export interface IMovieDescriptionRow {
-    title?: string;
+    show: any;
 }

@@ -1,9 +1,12 @@
 import { MovieCard } from '../../components/MovieCard';
 import { getDetails } from '../../services/movies/getDetails';
+import { useAppContext } from '../../store/app-context/app-context';
+import { UserObject } from '../../store/app-context/types';
 import { IMovieDetail } from './types';
 import React, { useState, useEffect } from 'react';
 
 const MyFavorites: React.FC = () => {
+    const { setUser } = useAppContext();
     const [loading, setLoading] = useState<boolean>(false);
     const [shows, setShows] = useState<IMovieDetail[]>([]);
     const favorites: string = localStorage.getItem('favorites') || "";
@@ -32,6 +35,20 @@ const MyFavorites: React.FC = () => {
     useEffect(() => {
         setLoading(true);
         runGetFavorites();
+    }, []);
+
+    
+    useEffect(() => {
+        const user: UserObject = {
+            id: "1",
+            firstName: "John",
+            lastName: "Doe",
+            email: "email@test.com"
+        };
+
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log("se guardo user en el app context");
     }, []);
 
 

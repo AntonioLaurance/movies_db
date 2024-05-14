@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-
 import { getDetails } from '../../services/movies/getDetails';
 import { MovieTape } from '../../components/MovieTape';
-import './Show.css';
-import { IMAGE_SOURCE } from '../../constants/moviesMock';
 import { Pill } from '../../components/Pill';
+import { IMAGE_SOURCE } from '../../constants/moviesMock';
+
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+
+import './Show.css';
 
 const Show: React.FC = () => {
     const { id } = useParams();
